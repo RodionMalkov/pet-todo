@@ -1,0 +1,12 @@
+.btn {
+  color: var(--primary-white);
+  background-color: var(--primary-dark);
+  padding: var(--element-padding);
+  border-radius: var(--radius);
+  border: none;
+  text-transform: uppercase;
+
+  &:disabled {
+    opacity: 0.2;
+  }
+}

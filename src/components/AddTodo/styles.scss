@@ -1,0 +1,14 @@
+.add-todo {
+  &__row {
+    padding: 24px 0;
+  }
+  &__main {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  &__input {
+    flex: 1;
+  }
+}
