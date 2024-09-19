@@ -9,12 +9,14 @@ const Btn = React.forwardRef((props, ref) => {
     <button
       type={submit ? "submit" : "button"}
       id={addId}
-      className={`btn btn--${color ? color : ""} ${addClass ? addClass : ""}`}
+      className={`btn ${color ? `btn--${color}` : ""} ${
+        addClass ? addClass : ""
+      }`}
       disabled={disabled}
       onClick={onClick}
       ref={ref}
     >
-      {text}
+      {text ? text : ""}
       {children}
     </button>
   );

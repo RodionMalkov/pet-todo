@@ -1,0 +1,16 @@
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding: 0.5rem;
+
+  &__num {
+    width: 100%;
+    max-width: 34px;
+  }
+
+  &__text {
+    flex: 1;
+  }
+}

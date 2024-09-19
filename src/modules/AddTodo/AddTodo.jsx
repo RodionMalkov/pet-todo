@@ -3,7 +3,7 @@ import "./styles.scss";
 import Btn from "../../elemets/Btn/Btn";
 import Input from "../../elemets/Input/Input";
 
-const AddTodo = () => {
+const AddTodo = ({ addTodo }) => {
   const [todoValue, setTodoValue] = useState("");
   const [btnDisabled, setBtnDisabled] = useState(true);
   const btnRef = useRef(null);
@@ -15,8 +15,11 @@ const AddTodo = () => {
   };
 
   const handleClick = () => {
-    setTodoValue("");
-    setBtnDisabled(true);
+    if (todoValue.trim()) {
+      addTodo(todoValue);
+      setTodoValue("");
+      setBtnDisabled(true);
+    }
   };
 
   const handleKeyDown = (e) => {

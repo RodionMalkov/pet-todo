@@ -9,4 +9,13 @@
   &:disabled {
     opacity: 0.2;
   }
+
+  &--transparent {
+    background-color: transparent;
+    border: 1px solid var(--primary-gray);
+  }
+
+  &--remove {
+    padding: var(--element-padding-square);
+  }
 }

@@ -1,0 +1,12 @@
+.btn-date {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  &__input {
+    display: none;
+  }
+}
