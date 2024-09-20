@@ -24,7 +24,6 @@ const AddTodo = ({ addTodo }) => {
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter" && !btnDisabled) {
-      e.preventDefault();
       if (btnRef.current) {
         btnRef.current.click();
       }

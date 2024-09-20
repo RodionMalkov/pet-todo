@@ -1,13 +1,15 @@
 import React from "react";
-import "./styles.scss";
+import "./TodoControls.scss";
 import BtnDate from "../../elemets/BtnDate/BtnDate";
 import BtnRemove from "../../elemets/BtnRemove/BtnRemove";
+import BtnInfo from "../../elemets/BtnInfo/BtnInfo";
 
-const TodoControls = (props) => {
+const TodoControls = ({ onRemove, onDateClick }) => {
   return (
     <div className="todo-controls">
-      <BtnDate />
-      <BtnRemove onClick={props.onClick} />
+      <BtnDate onClick={onDateClick} />
+      <BtnInfo />
+      <BtnRemove onClick={onRemove} />
     </div>
   );
 };

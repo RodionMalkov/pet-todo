@@ -4,15 +4,24 @@ import Container from "./modules/Container/Container";
 import TodoList from "./modules/TodoList/TodoList";
 
 function App() {
-  const [todoList, setTodoList] = useState([]);
+  const [todoList, setTodoList] = useState([
+    // { id: 1, task: "first", deadline: new Date("2024-09-21") },
+  ]);
 
-  const addTodo = (text) => {
+  const addTodo = (task) => {
     const newTodo = {
       id: todoList.length > 0 ? todoList.at(-1).id + 1 : 1,
       dataCreate: new Date(),
-      text,
+      deadline: null,
+      task,
     };
     setTodoList([...todoList, newTodo]);
+  };
+
+  const addDeadline = (id, deadline) => {
+    setTodoList(
+      todoList.map((todo) => (todo.id === id ? { ...todo, deadline } : todo))
+    );
   };
 
   const removeTodo = (id) => {
@@ -23,7 +32,11 @@ function App() {
     <>
       <Container>
         <AddTodo addTodo={addTodo} />
-        <TodoList todoList={todoList} removeTodo={removeTodo} />
+        <TodoList
+          todoList={todoList}
+          removeTodo={removeTodo}
+          addDeadline={addDeadline}
+        />
       </Container>
     </>
   );

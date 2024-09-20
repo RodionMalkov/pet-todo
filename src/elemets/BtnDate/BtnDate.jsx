@@ -2,12 +2,12 @@ import React from "react";
 import "./styles.scss";
 
 const BtnDate = (props) => {
-  const { addClass, addId } = props;
-  const dateBtn = React.useRef(null);
+  const { addClass, addId, onClick } = props;
 
   const handleClick = () => {
-    if (dateBtn.current) {
-      dateBtn.current.focus();
+    // Вызываем переданный обработчик
+    if (onClick) {
+      onClick();
     }
   };
 
@@ -17,14 +17,7 @@ const BtnDate = (props) => {
       id={addId}
       className={`btn-date ${addClass ? addClass : ""}`}
       onClick={handleClick}
-      for="add-date"
     >
-      <input
-        className="btn-date__input"
-        id="add-date"
-        type="date"
-        ref={dateBtn}
-      />
       <svg
         xmlns="http://www.w3.org/2000/svg"
         height="24px"
