@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles.scss";
+import "./Btn.scss";
 
 const Btn = React.forwardRef((props, ref) => {
   const { submit, text, color, addClass, addId, onClick, disabled, children } =

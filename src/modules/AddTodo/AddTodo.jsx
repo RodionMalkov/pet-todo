@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
-import "./styles.scss";
-import Btn from "../../elemets/Btn/Btn";
-import Input from "../../elemets/Input/Input";
+import "./AddTodo.scss";
+import Btn from "../../elements/Btn/Btn";
+import Input from "../../elements/Input/Input";
 
 const AddTodo = ({ addTodo }) => {
   const [todoValue, setTodoValue] = useState("");

@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles.scss";
+import "./BtnDate.scss";
 
 const BtnDate = (props) => {
   const { addClass, addId, onClick } = props;

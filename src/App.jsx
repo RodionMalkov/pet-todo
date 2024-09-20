@@ -3,7 +3,7 @@ import AddTodo from "./modules/AddTodo/AddTodo";
 import Container from "./modules/Container/Container";
 import TodoList from "./modules/TodoList/TodoList";
 
-function App() {
+const App = () => {
   const [todoList, setTodoList] = useState([
     // { id: 1, task: "first", deadline: new Date("2024-09-21") },
   ]);
@@ -40,6 +40,6 @@ function App() {
       </Container>
     </>
   );
-}
+};
 
 export default App;

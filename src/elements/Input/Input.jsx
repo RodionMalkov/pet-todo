@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles.scss";
+import "./Input.scss";
 
 const Input = React.forwardRef((props, ref) => {
   const {

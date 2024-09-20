@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles.scss";
+import "./Container.scss";
 const Container = ({ children, addClass }) => (
   <div className={`container ${addClass ? addClass : ""}`}>{children}</div>
 );

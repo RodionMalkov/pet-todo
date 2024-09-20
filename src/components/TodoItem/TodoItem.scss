@@ -25,11 +25,8 @@
     background-color: var(--primary-white);
     cursor: pointer;
 
-    &:hover,
-    &:focus,
     &:focus-visible {
-      outline: 1px solid var(--primary-dark);
-      outline-offset: -1px;
+      outline: none;
     }
 
     &::placeholder {

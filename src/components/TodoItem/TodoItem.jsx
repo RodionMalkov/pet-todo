@@ -9,8 +9,7 @@ const TodoItem = ({ props, removeTodo, addDeadline }) => {
   const [startDate, setStartDate] = useState(
     deadline ? new Date(deadline) : null
   );
-  const [isOpen, setIsOpen] = useState(false);
-  const btnDateRef = useRef(null);
+  const datePickerRef = useRef(null);
 
   const handleRemove = () => {
     removeTodo(id);
@@ -19,12 +18,11 @@ const TodoItem = ({ props, removeTodo, addDeadline }) => {
   const handleDateChange = (date) => {
     setStartDate(date);
     addDeadline(id, date);
-    setIsOpen(false);
+    datePickerRef.current.setOpen(false);
   };
 
   const handleBtnDateClick = () => {
-    setIsOpen(true);
-    btnDateRef.current?.focus();
+    datePickerRef.current.setOpen(true);
   };
 
   return (
@@ -34,13 +32,10 @@ const TodoItem = ({ props, removeTodo, addDeadline }) => {
       <DatePicker
         selected={startDate}
         onChange={handleDateChange}
-        wrapperClassName="my-custom-wrapper"
         className="todo-item__cell todo-item__date"
         placeholderText="Укажите дедлайн"
         dateFormat="dd.MM.yyyy"
-        fixedHeight
-        open={isOpen}
-        onClickOutside={() => setIsOpen(false)}
+        ref={datePickerRef}
       />
       <TodoControls onRemove={handleRemove} onDateClick={handleBtnDateClick} />
     </div>
