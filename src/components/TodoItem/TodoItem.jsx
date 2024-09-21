@@ -1,14 +1,18 @@
 import React, { useState, useRef } from "react";
-import "./TodoItem.scss";
+
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+
+import "./TodoItem.scss";
 import TodoControls from "../TodoControls/TodoControls";
+import TaskInfo from "../../modules/TaskInfo/TaskInfo";
 
 const TodoItem = ({ props, removeTodo, addDeadline }) => {
   const { id, task, deadline } = props;
-  const [startDate, setStartDate] = useState(
+  const [deadLineDate, setDeadLine] = useState(
     deadline ? new Date(deadline) : null
   );
+  const [modalIsOpen, setIsOpen] = React.useState(false);
   const datePickerRef = useRef(null);
 
   const handleRemove = () => {
@@ -16,7 +20,7 @@ const TodoItem = ({ props, removeTodo, addDeadline }) => {
   };
 
   const handleDateChange = (date) => {
-    setStartDate(date);
+    setDeadLine(date);
     addDeadline(id, date);
     datePickerRef.current.setOpen(false);
   };
@@ -25,19 +29,37 @@ const TodoItem = ({ props, removeTodo, addDeadline }) => {
     datePickerRef.current.setOpen(true);
   };
 
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+
   return (
     <div className="todo-item">
       <div className="todo-item__cell todo-item__num">{id}</div>
       <div className="todo-item__cell todo-item__task">{task}</div>
       <DatePicker
-        selected={startDate}
+        selected={deadLineDate}
         onChange={handleDateChange}
         className="todo-item__cell todo-item__date"
         placeholderText="Укажите дедлайн"
         dateFormat="dd.MM.yyyy"
         ref={datePickerRef}
       />
-      <TodoControls onRemove={handleRemove} onDateClick={handleBtnDateClick} />
+      <TodoControls
+        openModal={openModal}
+        onRemove={handleRemove}
+        onDateClick={handleBtnDateClick}
+      />
+      <TaskInfo
+        closeModal={closeModal}
+        modalIsOpen={modalIsOpen}
+        TaskInfo={props}
+        deadLineDate={deadLineDate}
+      />
     </div>
   );
 };

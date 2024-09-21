@@ -1,0 +1,24 @@
+.task-info {
+  &__modal {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    max-width: 600px;
+    height: 100%;
+    background-color: var(--primary-gray);
+    padding: var(--element-padding);
+  }
+
+  // .ReactModal__Overlay {
+  //   transition: 250ms ease-in-out;
+  // }
+
+  // .ReactModal__Overlay--after-open {
+  //   right: -100%;
+  // }
+
+  // .ReactModal__Overlay--before-close {
+  //   right: 0;
+  // }
+}
