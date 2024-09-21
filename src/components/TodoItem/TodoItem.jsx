@@ -42,9 +42,10 @@ const TodoItem = ({ props, removeTodo, addDeadline }) => {
       <div className="todo-item__cell todo-item__num">{id}</div>
       <div className="todo-item__cell todo-item__task">{task}</div>
       <DatePicker
+        wrapperClassName="todo-item__cell todo-item__date"
+        className="todo-item__date-input"
         selected={deadLineDate}
         onChange={handleDateChange}
-        className="todo-item__cell todo-item__date"
         placeholderText="Укажите дедлайн"
         dateFormat="dd.MM.yyyy"
         ref={datePickerRef}

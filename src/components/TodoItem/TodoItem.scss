@@ -1,14 +1,28 @@
 .todo-item {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   align-items: center;
   gap: 24px;
   border-bottom: 1px solid var(--primary-deep-dark);
   padding: var(--element-padding);
 
+  @media (max-width: 575px) {
+    gap: 6px 12px;
+    padding: var(--element-padding-square);
+  }
+
+  &__cell {
+    width: 100%;
+  }
+
   &__num {
     width: 100%;
     max-width: 40px;
+
+    @media (max-width: 575px) {
+      display: none;
+    }
   }
 
   &__task {
@@ -17,22 +31,33 @@
     overflow: hidden;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
+
+    @media (max-width: 575px) {
+      flex: 0 0 auto;
+      width: 100%;
+    }
   }
 
   &__date {
-    width: 140px;
-    border: none;
-    background-color: var(--primary-white);
+    width: 100%;
+    max-width: 140px;
     cursor: pointer;
 
-    &:focus-visible {
-      outline: none;
-    }
+    &-input {
+      width: 100%;
+      border: none;
+      background-color: var(--primary-white);
 
-    &::placeholder {
-      font-size: 0.8rem;
+      &:focus-visible {
+        outline: none;
+      }
+
+      &::placeholder {
+        font-size: 0.8rem;
+      }
     }
   }
+
   .react-datepicker__tab-loop {
     position: absolute;
   }
