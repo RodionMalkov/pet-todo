@@ -2,7 +2,13 @@ import React from "react";
 import "./TodoList.scss";
 import TodoItem from "../../components/TodoItem/TodoItem";
 
-const TodoList = ({ todoList, removeTodo, addDeadline }) => {
+const TodoList = ({
+  todoList,
+  removeTodo,
+  addDeadline,
+  addDesc,
+  renameTask,
+}) => {
   return (
     <div className="todo-list">
       {todoList.map((item) => (
@@ -11,6 +17,8 @@ const TodoList = ({ todoList, removeTodo, addDeadline }) => {
           props={item}
           removeTodo={removeTodo}
           addDeadline={addDeadline}
+          addDesc={addDesc}
+          renameTask={renameTask}
         />
       ))}
 

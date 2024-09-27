@@ -2,4 +2,8 @@
   padding: var(--element-padding);
   border-radius: var(--radius);
   border: none;
+
+  &--transparent {
+    background-color: transparent;
+  }
 }

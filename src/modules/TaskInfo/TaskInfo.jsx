@@ -3,9 +3,24 @@ import Modal from "react-modal";
 
 import "./TaskInfo.scss";
 
-const TaskInfo = ({ modalIsOpen, closeModal, TaskInfo, deadLineDate }) => {
+const TaskInfo = ({
+  modalIsOpen,
+  closeModal,
+  TaskInfo,
+  deadLineDate,
+  addDesc,
+  renameTask,
+}) => {
   Modal.setAppElement("#root");
-  const { id, task } = TaskInfo;
+  const { id, task, desc } = TaskInfo;
+
+  const handleTaskChange = (e) => {
+    renameTask(id, e.target.value);
+  };
+
+  const handleDescChange = (e) => {
+    addDesc(id, e.target.value);
+  };
 
   let taskDate;
 
@@ -27,7 +42,20 @@ const TaskInfo = ({ modalIsOpen, closeModal, TaskInfo, deadLineDate }) => {
       onRequestClose={closeModal}
       contentLabel="Task Inforamtion"
     >
-      {id} - {taskDate} - {task}
+      <input
+        className="input input--transparent task-info__title"
+        value={task}
+        onChange={handleTaskChange}
+      />
+      <div className="task-info__block">
+        <div className="task-info__block-title">Описание</div>
+        <textarea
+          className="input input--transparent task-info__desc"
+          value={desc}
+          onChange={handleDescChange}
+          placeholder="О чём это задание?"
+        ></textarea>
+      </div>
     </Modal>
   );
 };

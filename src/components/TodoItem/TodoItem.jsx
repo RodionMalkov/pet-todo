@@ -7,7 +7,7 @@ import "./TodoItem.scss";
 import TodoControls from "../TodoControls/TodoControls";
 import TaskInfo from "../../modules/TaskInfo/TaskInfo";
 
-const TodoItem = ({ props, removeTodo, addDeadline }) => {
+const TodoItem = ({ props, removeTodo, addDeadline, addDesc, renameTask }) => {
   const { id, task, deadline } = props;
   const [deadLineDate, setDeadLine] = useState(
     deadline ? new Date(deadline) : null
@@ -60,6 +60,8 @@ const TodoItem = ({ props, removeTodo, addDeadline }) => {
         modalIsOpen={modalIsOpen}
         TaskInfo={props}
         deadLineDate={deadLineDate}
+        addDesc={addDesc}
+        renameTask={renameTask}
       />
     </div>
   );
