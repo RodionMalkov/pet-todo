@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/pet-todo/build/static/css/main.c295447a.css",
+    "main.js": "/pet-todo/build/static/js/main.351a49ad.js",
+    "index.html": "/pet-todo/build/index.html",
+    "main.c295447a.css.map": "/pet-todo/build/static/css/main.c295447a.css.map",
+    "main.351a49ad.js.map": "/pet-todo/build/static/js/main.351a49ad.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c295447a.css",
+    "static/js/main.351a49ad.js"
+  ]
+}
