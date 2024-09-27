@@ -2,6 +2,7 @@ import React from "react";
 import Modal from "react-modal";
 
 import "./TaskInfo.scss";
+import Input from "../../elements/Input/Input";
 
 const TaskInfo = ({
   modalIsOpen,
@@ -42,10 +43,10 @@ const TaskInfo = ({
       onRequestClose={closeModal}
       contentLabel="Task Inforamtion"
     >
-      <input
-        className="input input--transparent task-info__title"
-        value={task}
+      <Input
         onChange={handleTaskChange}
+        addClass="input--transparent task-info__title"
+        value={task}
       />
       <div className="task-info__block">
         <div className="task-info__block-title">Описание</div>

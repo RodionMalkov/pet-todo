@@ -8,7 +8,7 @@ import TodoControls from "../TodoControls/TodoControls";
 import TaskInfo from "../../modules/TaskInfo/TaskInfo";
 
 const TodoItem = ({ props, removeTodo, addDeadline, addDesc, renameTask }) => {
-  const { id, task, deadline } = props;
+  const { id, task, deadline, desc } = props;
   const [deadLineDate, setDeadLine] = useState(
     deadline ? new Date(deadline) : null
   );
