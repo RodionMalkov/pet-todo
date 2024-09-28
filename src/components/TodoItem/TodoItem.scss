@@ -25,17 +25,29 @@
     }
   }
 
-  &__task {
+  &__about {
     flex: 1;
-    display: -webkit-box;
-    overflow: hidden;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 1;
-
     @media (max-width: 575px) {
       flex: 0 0 auto;
       width: 100%;
     }
+  }
+
+  &__task {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    width: 100%;
+  }
+
+  &__desc {
+    font-size: 0.7rem;
+    color: var(--primary-gray);
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
   }
 
   &__date {

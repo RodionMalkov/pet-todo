@@ -6,9 +6,13 @@ import "react-datepicker/dist/react-datepicker.css";
 import "./TodoItem.scss";
 import TodoControls from "../TodoControls/TodoControls";
 import TaskInfo from "../../modules/TaskInfo/TaskInfo";
+import Input from "../../elements/Input/Input";
 
-const TodoItem = ({ props, removeTodo, addDeadline, addDesc, renameTask }) => {
-  const { id, task, deadline, desc } = props;
+const TodoItem = (props) => {
+  const { taskInfo, removeTodo, addDeadline, addDesc, renameTask } = props;
+
+  const { id, task, deadline, desc } = taskInfo;
+
   const [deadLineDate, setDeadLine] = useState(
     deadline ? new Date(deadline) : null
   );
@@ -40,7 +44,10 @@ const TodoItem = ({ props, removeTodo, addDeadline, addDesc, renameTask }) => {
   return (
     <div className="todo-item">
       <div className="todo-item__cell todo-item__num">{id}</div>
-      <div className="todo-item__cell todo-item__task">{task}</div>
+      <div className="todo-item__cell todo-item__about">
+        <span className="todo-item__task">{task}</span>
+        {desc && <span className="todo-item__desc">{desc}</span>}
+      </div>
       <DatePicker
         wrapperClassName="todo-item__cell todo-item__date"
         className="todo-item__date-input"
@@ -58,7 +65,7 @@ const TodoItem = ({ props, removeTodo, addDeadline, addDesc, renameTask }) => {
       <TaskInfo
         closeModal={closeModal}
         modalIsOpen={modalIsOpen}
-        TaskInfo={props}
+        taskInfo={taskInfo}
         deadLineDate={deadLineDate}
         addDesc={addDesc}
         renameTask={renameTask}

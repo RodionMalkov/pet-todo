@@ -4,16 +4,16 @@ import Modal from "react-modal";
 import "./TaskInfo.scss";
 import Input from "../../elements/Input/Input";
 
-const TaskInfo = ({
-  modalIsOpen,
-  closeModal,
-  TaskInfo,
-  deadLineDate,
-  addDesc,
-  renameTask,
-}) => {
-  Modal.setAppElement("#root");
-  const { id, task, desc } = TaskInfo;
+const TaskInfo = (props) => {
+  const {
+    modalIsOpen,
+    closeModal,
+    taskInfo,
+    renameTask,
+    addDesc,
+    deadLineDate,
+  } = props;
+  const { id, task, desc } = taskInfo;
 
   const handleTaskChange = (e) => {
     renameTask(id, e.target.value);
@@ -34,6 +34,8 @@ const TaskInfo = ({
   } else {
     taskDate = "Дедлайн не указаан";
   }
+
+  Modal.setAppElement("#root");
 
   return (
     <Modal
