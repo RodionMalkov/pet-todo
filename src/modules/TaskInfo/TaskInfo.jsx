@@ -45,9 +45,11 @@ const TaskInfo = (props) => {
       onRequestClose={closeModal}
       contentLabel="Task Inforamtion"
     >
+      <button onClick={closeModal}>close</button>
+
       <Input
         onChange={handleTaskChange}
-        addClass="input--transparent task-info__title"
+        className="input--transparent task-info__title"
         value={task}
       />
       <div className="task-info__block">

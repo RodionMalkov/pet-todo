@@ -37,13 +37,13 @@ const AddTodo = ({ addTodo }) => {
           value={todoValue}
           onChange={handleChange}
           onKeyDown={handleKeyDown}
-          addClass="add-todo__input"
+          className="add-todo__input"
           placeholder="Что планируем?"
         />
         <Btn
           ref={btnRef}
           color="red"
-          addClass="add-todo__btn"
+          className="add-todo__btn"
           text="Добавить"
           disabled={btnDisabled}
           onClick={handleClick}

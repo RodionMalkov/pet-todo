@@ -2,10 +2,9 @@ import React from "react";
 import "./BtnDate.scss";
 
 const BtnDate = (props) => {
-  const { addClass, addId, onClick } = props;
+  const { className, addId, onClick } = props;
 
   const handleClick = () => {
-    // Вызываем переданный обработчик
     if (onClick) {
       onClick();
     }
@@ -15,7 +14,7 @@ const BtnDate = (props) => {
     <button
       type="button"
       id={addId}
-      className={`btn-date ${addClass ? addClass : ""}`}
+      className={`btn-date ${className ? className : ""}`}
       onClick={handleClick}
     >
       <svg

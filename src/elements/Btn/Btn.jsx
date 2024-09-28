@@ -2,7 +2,7 @@ import React from "react";
 import "./Btn.scss";
 
 const Btn = React.forwardRef((props, ref) => {
-  const { submit, text, color, addClass, addId, onClick, disabled, children } =
+  const { submit, text, color, className, addId, onClick, disabled, children } =
     props;
 
   return (
@@ -10,7 +10,7 @@ const Btn = React.forwardRef((props, ref) => {
       type={submit ? "submit" : "button"}
       id={addId}
       className={`btn ${color ? `btn--${color}` : ""} ${
-        addClass ? addClass : ""
+        className ? className : ""
       }`}
       disabled={disabled}
       onClick={onClick}

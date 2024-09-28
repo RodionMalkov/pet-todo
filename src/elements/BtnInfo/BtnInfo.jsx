@@ -2,13 +2,13 @@ import React from "react";
 import "./BtnInfo.scss";
 
 const BtnInfo = React.forwardRef((props, ref) => {
-  const { addClass, addId, onClick } = props;
+  const { className, addId, onClick } = props;
 
   return (
     <button
       type="button"
       id={addId}
-      className={`btn-info ${addClass ? addClass : ""}`}
+      className={`btn-info ${className ? className : ""}`}
       onClick={onClick}
       ref={ref}
     >

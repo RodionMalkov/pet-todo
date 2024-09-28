@@ -2,13 +2,13 @@ import React from "react";
 import "./BtnRemove.scss";
 
 const BtnRemove = React.forwardRef((props, ref) => {
-  const { addClass, addId, onClick } = props;
+  const { className, addId, onClick } = props;
 
   return (
     <button
       type="button"
       id={addId}
-      className={`btn-remove ${addClass ? addClass : ""}`}
+      className={`btn-remove ${className ? className : ""}`}
       onClick={onClick}
       ref={ref}
     >

@@ -4,7 +4,7 @@ import "./Input.scss";
 const Input = React.forwardRef((props, ref) => {
   const {
     type,
-    addClass,
+    className,
     addId,
     addName,
     placeholder,
@@ -24,7 +24,7 @@ const Input = React.forwardRef((props, ref) => {
       onKeyDown={onKeyDown}
       onClick={onClick}
       ref={ref}
-      className={`input ${addClass ? addClass : ""}`}
+      className={`input ${className ? className : ""}`}
       placeholder={placeholder}
       value={value}
       required={required ? true : false}
