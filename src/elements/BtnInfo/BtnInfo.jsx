@@ -1,13 +1,14 @@
 import React from "react";
+import { ReactSVG } from "react-svg";
 import "./BtnInfo.scss";
 
 const BtnInfo = React.forwardRef((props, ref) => {
-  const { className, addId, onClick } = props;
+  const { className, id, onClick } = props;
 
   return (
     <button
       type="button"
-      id={addId}
+      id={id}
       className={`btn-info ${className ? className : ""}`}
       onClick={onClick}
       ref={ref}

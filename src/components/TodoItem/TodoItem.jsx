@@ -6,7 +6,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import "./TodoItem.scss";
 import TodoControls from "../TodoControls/TodoControls";
 import TaskInfo from "../../modules/TaskInfo/TaskInfo";
-import Input from "../../elements/Input/Input";
+import Task from "../Task/Task";
 
 const TodoItem = (props) => {
   const { taskInfo, removeTodo, addDeadline, addDesc, renameTask } = props;
@@ -45,7 +45,7 @@ const TodoItem = (props) => {
     <div className="todo-item">
       <div className="todo-item__cell todo-item__num">{id}</div>
       <div className="todo-item__cell todo-item__about">
-        <span className="todo-item__task">{task}</span>
+        <Task className="todo-item__task" id={id} task={task} />
         {desc && <span className="todo-item__desc">{desc}</span>}
       </div>
       <DatePicker

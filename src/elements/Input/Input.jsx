@@ -5,8 +5,8 @@ const Input = React.forwardRef((props, ref) => {
   const {
     type,
     className,
-    addId,
-    addName,
+    id,
+    name,
     placeholder,
     value,
     onChange,
@@ -18,8 +18,8 @@ const Input = React.forwardRef((props, ref) => {
   return (
     <input
       type={type ? type : "text"}
-      id={addId}
-      name={addName}
+      id={id}
+      name={name}
       onChange={onChange}
       onKeyDown={onKeyDown}
       onClick={onClick}
