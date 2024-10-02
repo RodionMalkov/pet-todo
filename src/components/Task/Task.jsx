@@ -3,7 +3,11 @@ import "./Task.scss";
 import Input from "../../elements/Input/Input";
 
 const Task = (props) => {
-  const { className, id, task, onClick } = props;
+  const { className, id, task, onClick, statusTask } = props;
+
+  const handleTaskChange = (e) => {
+    statusTask(id, e.target.checked);
+  };
 
   return (
     <label аttrFor={id} className={`task ${className ? className : ""}`}>
@@ -12,6 +16,7 @@ const Task = (props) => {
         className="task__checkbox"
         id={id}
         onClick={onClick}
+        onChange={handleTaskChange}
       />
       <span className="task__text">{task}</span>
     </label>

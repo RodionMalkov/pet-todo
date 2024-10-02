@@ -3,7 +3,8 @@ import "./TodoList.scss";
 import TodoItem from "../../components/TodoItem/TodoItem";
 
 const TodoList = (props) => {
-  const { todoList, removeTodo, addDeadline, addDesc, renameTask } = props;
+  const { todoList, removeTodo, addDeadline, addDesc, renameTask, statusTask } =
+    props;
   return (
     <div className="todo-list">
       {todoList.map((item) => (
@@ -14,6 +15,7 @@ const TodoList = (props) => {
           addDeadline={addDeadline}
           addDesc={addDesc}
           renameTask={renameTask}
+          statusTask={statusTask}
         />
       ))}
 
