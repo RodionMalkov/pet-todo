@@ -5,6 +5,8 @@ import TodoList from "./modules/TodoList/TodoList";
 
 const App = () => {
   const [todoList, setTodoList] = useState([]);
+  const [completedList, setCompletedList] = useState([]);
+  const [favoritesList, setFavoritesList] = useState([]);
 
   const addTodo = (task) => {
     const newTodo = {
@@ -28,9 +30,24 @@ const App = () => {
   };
 
   const statusTask = (id, isComplited) => {
-    setTodoList(
-      todoList.map((todo) => (todo.id === id ? { ...todo, isComplited } : todo))
-    );
+    // Найдём задачу в любом из списков (активные или завершённые)
+    let task =
+      todoList.find((todo) => todo.id === id) ||
+      completedList.find((todo) => todo.id === id);
+
+    if (!task) return; // Если задача не найдена, ничего не делаем
+
+    task = { ...task, isComplited }; // Обновляем статус задачи
+
+    if (isComplited) {
+      // Перемещаем задачу в выполненные
+      setCompletedList([...completedList, task]);
+      setTodoList(todoList.filter((todo) => todo.id !== id)); // Удаляем из активных
+    } else {
+      // Возвращаем задачу в активные
+      setTodoList([...todoList, task]);
+      setCompletedList(completedList.filter((todo) => todo.id !== id)); // Удаляем из выполненных
+    }
   };
 
   const addDeadline = (id, deadline) => {
@@ -67,7 +84,6 @@ const App = () => {
       },
     ]);
   }, []);
-  console.log(todoList);
   return (
     <>
       <Container>
@@ -79,6 +95,18 @@ const App = () => {
           addDesc={addDesc}
           renameTask={renameTask}
           statusTask={statusTask}
+          listTitle="В планах"
+          textEmpty="Список дел пуст :'("
+        />
+        <TodoList
+          todoList={completedList}
+          removeTodo={removeTodo}
+          addDeadline={addDeadline}
+          addDesc={addDesc}
+          renameTask={renameTask}
+          statusTask={statusTask}
+          listTitle="Завершенные задачи"
+          textEmpty="У вас нет завершённых задач"
         />
       </Container>
     </>

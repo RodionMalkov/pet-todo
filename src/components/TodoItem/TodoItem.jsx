@@ -9,10 +9,17 @@ import TaskInfo from "../../modules/TaskInfo/TaskInfo";
 import Task from "../Task/Task";
 
 const TodoItem = (props) => {
-  const { taskInfo, removeTodo, addDeadline, addDesc, renameTask, statusTask } =
-    props;
+  const {
+    taskInfo,
+    removeTodo,
+    addDeadline,
+    addDesc,
+    renameTask,
+    statusTask,
+    todoList,
+  } = props;
 
-  const { id, task, deadline, desc } = taskInfo;
+  const { id, task, deadline, desc, isComplited } = taskInfo;
 
   const [deadLineDate, setDeadLine] = useState(
     deadline ? new Date(deadline) : null
@@ -51,6 +58,7 @@ const TodoItem = (props) => {
           id={id}
           task={task}
           statusTask={statusTask}
+          isComplited={isComplited}
         />
         {desc && <span className="todo-item__desc">{desc}</span>}
       </div>

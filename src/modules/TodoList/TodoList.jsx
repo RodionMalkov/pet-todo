@@ -3,10 +3,19 @@ import "./TodoList.scss";
 import TodoItem from "../../components/TodoItem/TodoItem";
 
 const TodoList = (props) => {
-  const { todoList, removeTodo, addDeadline, addDesc, renameTask, statusTask } =
-    props;
+  const {
+    todoList,
+    removeTodo,
+    addDeadline,
+    addDesc,
+    renameTask,
+    statusTask,
+    listTitle,
+    textEmpty,
+  } = props;
   return (
     <div className="todo-list">
+      <h2 className="todo-list__title">{listTitle}</h2>
       {todoList.map((item) => (
         <TodoItem
           key={item.id}
@@ -16,10 +25,11 @@ const TodoList = (props) => {
           addDesc={addDesc}
           renameTask={renameTask}
           statusTask={statusTask}
+          todoList={todoList}
         />
       ))}
 
-      {!todoList.length && <p>У вас нет планов</p>}
+      {!todoList.length && <p>{textEmpty}</p>}
     </div>
   );
 };

@@ -13,6 +13,7 @@ const Input = React.forwardRef((props, ref) => {
     required,
     onClick,
     onKeyDown,
+    checked,
   } = props;
 
   return (
@@ -28,6 +29,7 @@ const Input = React.forwardRef((props, ref) => {
       placeholder={placeholder}
       value={value}
       required={required ? true : false}
+      checked={checked}
     />
   );
 });
